@@ -1,0 +1,5 @@
+{
+  "triggerValues": {
+    "secret": "prod-secret"
+  }
+}

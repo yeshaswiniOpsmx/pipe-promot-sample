@@ -1,0 +1,11 @@
+{
+ "cloudProviders": "",
+ "description": "Application created for testing PipelinePromotion. pipelines are not expected to be executed.",
+ "email": "srinivas@opsmx.io",
+ "instancePort": 80,
+ "lastModifiedBy": "admin",
+ "name": "srinipipepromot",
+ "trafficGuards": [],
+ "updateTs": "1605581028000",
+ "user": "admin"
+}

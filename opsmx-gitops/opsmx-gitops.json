@@ -1,0 +1,42 @@
+{
+ "cloudProviders": "kubernetes",
+ "customBanners": [
+  {
+   "backgroundColor": "var(--color-danger-light)",
+   "enabled": true,
+   "text": "**This is  using gitops directory. Contact support@opsmx.com**",
+   "textColor": "var(--color-text-secondary)"
+  }
+ ],
+ "dataSources": {
+  "disabled": [
+   "securityGroups",
+   "loadBalancers"
+  ],
+  "enabled": []
+ },
+ "description": "Application automatically created by OpsMx GitOps installation to house pipelines  required for the operations. Note that Admin user is required for this application.",
+ "email": "support@opsmx.com",
+ "instancePort": 80,
+ "lastModifiedBy": "admin",
+ "name": "opsmx-gitops",
+ "permissions": {
+  "EXECUTE": [
+   "admin"
+  ],
+  "READ": [
+   "admin"
+  ],
+  "WRITE": [
+   "admin"
+  ]
+ },
+ "providerSettings": {
+  "aws": {
+   "useAmiBlockDeviceMappings": false
+  }
+ },
+ "trafficGuards": [],
+ "updateTs": "1605887055000",
+ "user": "admin"
+}

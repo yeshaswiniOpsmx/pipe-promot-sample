@@ -1,0 +1,25 @@
+{
+ "application": "opsmx-gitops",
+ "id": "77fe0db9-e36a-499d-a7b4-1fc1ad4ae292",
+ "index": 2,
+ "keepWaitingPipelines": false,
+ "lastModifiedBy": "admin",
+ "limitConcurrent": true,
+ "name": "syncToSpinnaker",
+ "spelEvaluator": "v4",
+ "stages": [
+  {
+   "alias": "preconfiguredJob",
+   "name": "pipelineSyncToSpinnaker",
+   "parameters": {
+    "spinnaker_applications": "srinipipepromot",
+    "spinnaker_pipelines": ""
+   },
+   "refId": "1",
+   "requisiteStageRefIds": [],
+   "type": "pipelineSyncToSpinnaker"
+  }
+ ],
+ "triggers": [],
+ "updateTs": "1605885265000"
+}

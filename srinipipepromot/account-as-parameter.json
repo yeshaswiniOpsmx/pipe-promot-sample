@@ -1,0 +1,82 @@
+{
+ "appConfig": {},
+ "application": "srinipipepromot",
+ "id": "7b2c7aca-c6d0-4d9c-8281-beee7f100e16",
+ "index": 0,
+ "keepWaitingPipelines": false,
+ "lastModifiedBy": "admin",
+ "limitConcurrent": true,
+ "name": "account-as-parameter",
+ "parameterConfig": [
+  {
+   "default": "srini-acc",
+   "description": "",
+   "hasOptions": false,
+   "label": "Account",
+   "name": "account",
+   "options": [
+    {
+     "value": ""
+    }
+   ],
+   "pinned": false,
+   "required": false
+  },
+  {
+   "default": "OP-1111",
+   "description": "",
+   "hasOptions": false,
+   "label": "Jira Id",
+   "name": "jiraId",
+   "options": [
+    {
+     "value": ""
+    }
+   ],
+   "pinned": false,
+   "required": false
+  }
+ ],
+ "stages": [
+  {
+   "account": "${parameters['account']}",
+   "cloudProvider": "kubernetes",
+   "moniker": {
+    "app": "nsentest"
+   },
+   "name": "Deploy (Manifest)",
+   "refId": "1",
+   "requisiteStageRefIds": [
+    "2"
+   ],
+   "skipExpressionEvaluation": false,
+   "source": "text",
+   "stageEnabled": {
+    "expression": "${ #stage(  'Manual Judgement'  )['status'] == 'SUCCEEDED' }",
+    "type": "expression"
+   },
+   "trafficManagement": {
+    "enabled": false,
+    "options": {
+     "enableTraffic": false,
+     "services": []
+    }
+   },
+   "type": "deployManifest"
+  },
+  {
+   "completeOtherBranchesThenFail": false,
+   "continuePipeline": true,
+   "failPipeline": false,
+   "instructions": "Review this \u003ca href=https://devopsmx.atlassian.net/browse/${parameters['jiraId']}\u003eJira Issue\u003c/a\u003e to understand the changes in this release.\n\n${#fromUrl( 'https://raw.githubusercontent.com/Nirmalyasen/enigmatic/master/payload.yml' )}",
+   "judgmentInputs": [],
+   "name": "Manual Judgment",
+   "notifications": [],
+   "refId": "2",
+   "requisiteStageRefIds": [],
+   "type": "manualJudgment"
+  }
+ ],
+ "triggers": [],
+ "updateTs": "1605581059000"
+}

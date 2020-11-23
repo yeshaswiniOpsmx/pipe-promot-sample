@@ -1,0 +1,14 @@
+{
+  "triggerValues": {
+    "branch": "",
+    "enabled": true,
+    "expectedArtifactIds": [
+      "c0d8bc1d-0468-4013-9eb1-cb77fd2895d1"
+    ],
+    "project": "Nirmalyasen",
+    "secret": "opsmx",
+    "slug": "enigmatic",
+    "source": "github",
+    "type": "git"
+  }
+}

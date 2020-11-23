@@ -1,0 +1,89 @@
+{
+ "appConfig": {},
+ "application": "srinipipepromot",
+ "expectedArtifacts": [
+  {
+   "defaultArtifact": {
+    "customKind": true,
+    "id": "661c7377-1cd5-4533-bc71-2ad0ece2846f"
+   },
+   "displayName": "ugly-husky-41",
+   "id": "c0d8bc1d-0468-4013-9eb1-cb77fd2895d1",
+   "matchArtifact": {
+    "artifactAccount": "OpsMx-demoGit",
+    "customKind": true,
+    "id": "8249801f-4efc-42a9-9937-9ea0920b4304",
+    "name": "scripts/*",
+    "type": "github/file"
+   },
+   "useDefaultArtifact": false,
+   "usePriorArtifact": false
+  }
+ ],
+ "id": "04f8bf85-54b2-4cb2-882f-ae851f50b0ba",
+ "index": 1,
+ "keepWaitingPipelines": false,
+ "lastModifiedBy": "admin",
+ "limitConcurrent": false,
+ "name": "artifact-passing",
+ "parameterConfig": [],
+ "stages": [
+  {
+   "account": "default",
+   "alias": "runJob",
+   "application": "nsentest",
+   "cloudProvider": "kubernetes",
+   "consumeArtifactSource": "propertyFile",
+   "credentials": "default",
+   "manifest": {
+    "apiVersion": "batch/v1",
+    "kind": "Job",
+    "metadata": {
+     "name": "fetch",
+     "namespace": "default"
+    },
+    "spec": {
+     "backoffLimit": 1,
+     "template": {
+      "spec": {
+       "containers": [
+        {
+         "args": [
+          "${#toJson(trigger.artifacts)}"
+         ],
+         "command": [
+          "/run.sh"
+         ],
+         "image": "nirmalya/rel:0.5.2",
+         "name": "fetch"
+        }
+       ],
+       "restartPolicy": "Never"
+      }
+     }
+    }
+   },
+   "name": "Run Job",
+   "propertyFile": "fetch",
+   "refId": "1",
+   "requisiteStageRefIds": [],
+   "source": "text",
+   "type": "runJobManifest"
+  }
+ ],
+ "triggers": [
+  {
+   "branch": "",
+   "enabled": true,
+   "expectedArtifactIds": [
+    "c0d8bc1d-0468-4013-9eb1-cb77fd2895d1"
+   ],
+   "project": "Nirmalyasen",
+   "secret": "opsmx",
+   "slug": "enigmatic",
+   "source": "github",
+   "type": "git"
+  }
+ ],
+ "updateTs": "1605581065000"
+}
